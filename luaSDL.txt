@@ -1,0 +1,43 @@
+Lua-SDL2:
+https://redmine.malikania.fr/projects/luasdl2/wiki
+
+Lua-SDL2 requires -  
+
+SDL:
+https://www.libsdl.org/download-2.0.php
+
+SDL_image
+https://www.libsdl.org/projects/SDL_image/
+SDL_ttf
+
+I installed just the binary here since it wouldnt compile (depends on freetype?)
+https://www.libsdl.org/projects/SDL_ttf/
+SDL_mixer
+
+./configure line 10915 uses obsolete command line argument to GCC. change to:
+        # We build SDL on cygwin without the UNIX emulation layer
+        BASE_CFLAGS="-I/usr/include/mingw " #-mno-cygwin"
+        #BASE_LDFLAGS="-mno-cygwin"
+
+http://www.libsdl.org/projects/SDL_mixer/
+SDL_net
+https://www.libsdl.org/projects/SDL_net/
+
+sdl_ttf requires - 
+http://www.freetype.org/
+
+after installing freetype, add C:\Program Files (x86)\GnuWin32\bin to $PATH
+move freetype include directory to C:\cygwin\usr\local\include
+
+
+LuaJIT:
+need static build. Go to ./src/Makefile and insert:
+BUILDMODE= static
+
+http://luajit.org/download.html
+
+LuaJIT requires -
+GCC (cygwin, best to add cmake and automake):
+https://cygwin.com/install.html
+
+C:\Windows\SysWOW64\cyglua51.dll
